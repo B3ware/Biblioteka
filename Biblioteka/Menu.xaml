@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biblioteka"
         mc:Ignorable="d"
-        Title="Menu" Height="450" Width="800">
-    <Grid>
-        
+        Title="Menu" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:BibliotekaDataSet x:Key="bibliotekaDataSet"/>
+        <CollectionViewSource x:Key="ksiazkiViewSource" Source="{Binding Ksiazki, Source={StaticResource bibliotekaDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource ksiazkiViewSource}">
+        <Grid.Background>
+            <ImageBrush ImageSource="books.jpg"/>
+        </Grid.Background>
+        <Button x:Name="lista" Content="Zobacz listę wypożyczeń" HorizontalAlignment="Left" Margin="184,289,0,0" VerticalAlignment="Top" Width="140" Height="49" Click="lista_Click"/>
+        <Button x:Name="edytuj" Content="Edytuj Dane" HorizontalAlignment="Left" Margin="475,289,0,0" VerticalAlignment="Top" Width="140" Height="49"/>
+        <DataGrid x:Name="ksiazkiDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="161,10,162,192" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id_ksiazkiColumn" Binding="{Binding id_ksiazki}" Header="id ksiazki" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="iSBNColumn" Binding="{Binding ISBN}" Header="ISBN" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="tytulColumn" Binding="{Binding Tytul}" Header="Tytul" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="opisColumn" Binding="{Binding Opis}" Header="Opis" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="id_kategoriaColumn" Binding="{Binding id_kategoria}" Header="id kategoria" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="id_autorColumn" Binding="{Binding id_autor}" Header="id autor" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="id_wydawnictwaColumn" Binding="{Binding id_wydawnictwa}" Header="id wydawnictwa" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="rok_WydaniaColumn" Binding="{Binding Rok_Wydania}" Header="Rok Wydania" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="powrot" Content="Powrót" HorizontalAlignment="Left" Margin="34,375,0,0" VerticalAlignment="Top" Width="75" Click="powrot_Click"/>
+
     </Grid>
 </Window>

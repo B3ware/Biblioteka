@@ -22,3 +22,7 @@ C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Menu.g.cs
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Menu.baml
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\MenuCzytelnik.g.cs
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\MenuCzytelnik.baml
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Rejestracja.g.cs
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Rejestracja.baml

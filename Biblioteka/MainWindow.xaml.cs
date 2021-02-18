@@ -42,14 +42,22 @@ namespace Biblioteka
                 if ((bool)pracownik.IsChecked)
                     pozycja = "Pracownicy";
 
-                string query = "SELECT COUNT(1) FROM " + pozycja + " WHERE Login='" + txtLogin.Text + "' AND Haslo='" + txtHaslo.Text + "'";
+                string query = "SELECT COUNT(1) FROM " + pozycja + " WHERE Login='" + txtLogin.Text.ToString() + "' AND Haslo='" + txtHaslo.Password.ToString() + "'";
                 SqlCommand sqlCmd = new SqlCommand(query, con);
                 sqlCmd.CommandType = CommandType.Text;
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
-                    Menu menu = new Menu();
-                    menu.Show();
+                    if ((bool)pracownik.IsChecked)
+                    {
+                        Menu menu = new Menu();
+                        menu.Show();
+                    }
+                    else
+                    {
+                        MenuCzytelnik menuc = new MenuCzytelnik();
+                        menuc.Show();
+                    }
                     this.Close();
                 }
                 else
@@ -77,6 +85,18 @@ namespace Biblioteka
             bibliotekaDataSetCzytelnicyTableAdapter.Fill(bibliotekaDataSet.Czytelnicy);
             System.Windows.Data.CollectionViewSource czytelnicyViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("czytelnicyViewSource")));
             czytelnicyViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void zakoncz_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void nowy_Click(object sender, RoutedEventArgs e)
+        {
+            Rejestracja rej = new Rejestracja();
+            rej.Show();
+            this.Close();
         }
     }
 }
