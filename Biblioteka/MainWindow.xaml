@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="log" Content="Logowanie" HorizontalAlignment="Left" Margin="240,10,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="72" FontFamily="Calibri"/>
+        <Label x:Name="login" Content="Login" HorizontalAlignment="Left" Margin="270,174,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Hasło" HorizontalAlignment="Left" Margin="270,216,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="26" Margin="349,185,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtHaslo" HorizontalAlignment="Left" Height="26" Margin="349,227,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

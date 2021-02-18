@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a28e45ed6e4443f78b3d6bf00a98e81f" Name="Diagram1">
+        <EntityTypeShape EntityType="BibliotekaModel.Autorzy" Width="1.5" PointX="9.375" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Czytelnicy" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Kategorie" Width="1.5" PointX="9.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Ksiazki" Width="1.5" PointX="7.125" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Pracownicy" Width="1.5" PointX="0.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Wydawnictwa" Width="1.5" PointX="6.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotekaModel.Wypozyczenia" Width="1.5" PointX="4.375" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="BibliotekaModel.FK_Ksiazki_Autorzy" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK_Wypozyczenia_Czytelnicy" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK_Ksiazki_Kategorie" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK_Ksiazki_Wydawnictwa" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK_Wypozyczenia_Ksiazki" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK_Wypozyczenia_Pracownicy_Oddanie" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotekaModel.FK_Wypozyczenia_Pracownicy_Wypozyczenie" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
