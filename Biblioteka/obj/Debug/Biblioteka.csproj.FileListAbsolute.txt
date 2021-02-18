@@ -20,3 +20,5 @@ C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csp
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Menu.g.cs
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Menu.baml
