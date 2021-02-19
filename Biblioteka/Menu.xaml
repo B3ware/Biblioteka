@@ -9,16 +9,58 @@
     <Window.Resources>
         <local:BibliotekaDataSet x:Key="bibliotekaDataSet"/>
         <CollectionViewSource x:Key="ksiazkiViewSource" Source="{Binding Ksiazki, Source={StaticResource bibliotekaDataSet}}"/>
+        <CollectionViewSource x:Key="wypozyczeniaViewSource" Source="{Binding Wypozyczenia, Source={StaticResource bibliotekaDataSet}}"/>
+        <CollectionViewSource x:Key="wydawnictwaViewSource" Source="{Binding Wydawnictwa, Source={StaticResource bibliotekaDataSet}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource ksiazkiViewSource}">
+    <Grid DataContext="{StaticResource ksiazkiViewSource}" OpacityMask="#CCFFFFFF">
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
         <Grid.Background>
             <ImageBrush ImageSource="books.jpg"/>
         </Grid.Background>
-        <Button x:Name="lista" Content="Zobacz listę wypożyczeń" HorizontalAlignment="Left" Margin="184,289,0,0" VerticalAlignment="Top" Width="140" Height="49" Click="lista_Click"/>
-        <Button x:Name="edytuj" Content="Edytuj Dane" HorizontalAlignment="Left" Margin="475,289,0,0" VerticalAlignment="Top" Width="140" Height="49"/>
-        <DataGrid x:Name="ksiazkiDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="161,10,162,192" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <ToggleButton x:Name="lista" Content="Zobacz listę wypożyczeń" HorizontalAlignment="Left" Margin="188,289,0,0" VerticalAlignment="Top" Width="140" Height="49" Background="#E5FF7400"
+            Checked = "wlacz" Unchecked = "wylacz">
+            <ToggleButton.Effect>
+                <DropShadowEffect/>
+            </ToggleButton.Effect>
+        </ToggleButton>
+        <Button x:Name="edytuj" Content="Edytuj Dane" HorizontalAlignment="Left" Margin="482,289,0,0" VerticalAlignment="Top" Width="140" Height="49" Background="#E5FF7400">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="powrot" Content="Powrót" HorizontalAlignment="Left" Margin="34,375,0,0" VerticalAlignment="Top" Width="75" Click="powrot_Click" Background="#E5FF7400">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <DataGrid x:Name="wypozyczeniaDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource wypozyczeniaViewSource}}" Margin="146,30,146,159" RowDetailsVisibilityMode="VisibleWhenSelected" Background="#7FF0F0F0" Visibility="Hidden">
             <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id_wypozyczeniaColumn" Binding="{Binding id_wypozyczenia}" Header="id wypozyczenia" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="id_czytelnikColumn" Binding="{Binding id_czytelnik}" Header="id czytelnik" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="id_ksiazkiColumn" Binding="{Binding id_ksiazki}" Header="id ksiazki" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="data_wypozyczeniaColumn" Header="Data wypozyczenia" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Data_wypozyczenia, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="id_pracownik_wypozyczenieColumn" Binding="{Binding id_pracownik_wypozyczenie}" Header="id pracownik wypozyczenie" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="data_oddaniaColumn" Header="Data oddania" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Data_oddania, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="id_pracownik_oddanieColumn" Binding="{Binding id_pracownik_oddanie}" Header="id pracownik oddanie" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="ksiazkiDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="148,30,146,159" RowDetailsVisibilityMode="VisibleWhenSelected" Background="#7FF0F0F0">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id_ksiazkiColumn1" Binding="{Binding id_ksiazki}" Header="id ksiazki" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="iSBNColumn" Binding="{Binding ISBN}" Header="ISBN" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="tytulColumn" Binding="{Binding Tytul}" Header="Tytul" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="opisColumn" Binding="{Binding Opis}" Header="Opis" Width="SizeToHeader"/>
@@ -28,7 +70,6 @@
                 <DataGridTextColumn x:Name="rok_WydaniaColumn" Binding="{Binding Rok_Wydania}" Header="Rok Wydania" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="powrot" Content="Powrót" HorizontalAlignment="Left" Margin="34,375,0,0" VerticalAlignment="Top" Width="75" Click="powrot_Click"/>
 
     </Grid>
 </Window>

@@ -33,6 +33,16 @@ namespace Biblioteka
             bibliotekaDataSetKsiazkiTableAdapter.Fill(bibliotekaDataSet.Ksiazki);
             System.Windows.Data.CollectionViewSource ksiazkiViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ksiazkiViewSource")));
             ksiazkiViewSource.View.MoveCurrentToFirst();
+            // Załaduj dane do tabeli Wypozyczenia. Możesz modyfikować ten kod w razie potrzeby.
+            Biblioteka.BibliotekaDataSetTableAdapters.WypozyczeniaTableAdapter bibliotekaDataSetWypozyczeniaTableAdapter = new Biblioteka.BibliotekaDataSetTableAdapters.WypozyczeniaTableAdapter();
+            bibliotekaDataSetWypozyczeniaTableAdapter.Fill(bibliotekaDataSet.Wypozyczenia);
+            System.Windows.Data.CollectionViewSource wypozyczeniaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wypozyczeniaViewSource")));
+            wypozyczeniaViewSource.View.MoveCurrentToFirst();
+            // Załaduj dane do tabeli Wydawnictwa. Możesz modyfikować ten kod w razie potrzeby.
+            Biblioteka.BibliotekaDataSetTableAdapters.WydawnictwaTableAdapter bibliotekaDataSetWydawnictwaTableAdapter = new Biblioteka.BibliotekaDataSetTableAdapters.WydawnictwaTableAdapter();
+            bibliotekaDataSetWydawnictwaTableAdapter.Fill(bibliotekaDataSet.Wydawnictwa);
+            System.Windows.Data.CollectionViewSource wydawnictwaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("wydawnictwaViewSource")));
+            wydawnictwaViewSource.View.MoveCurrentToFirst();
         }
 
         private void powrot_Click(object sender, RoutedEventArgs e)
@@ -42,9 +52,15 @@ namespace Biblioteka
             this.Close();
         }
 
-        private void lista_Click(object sender, RoutedEventArgs e)
+        private void wlacz(object sender, RoutedEventArgs e)
         {
-
+            ksiazkiDataGrid.Visibility = Visibility.Hidden;
+            wypozyczeniaDataGrid.Visibility = Visibility.Visible;
+        }
+        private void wylacz(object sender, RoutedEventArgs e)
+        {
+            ksiazkiDataGrid.Visibility = Visibility.Visible;
+            wypozyczeniaDataGrid.Visibility = Visibility.Hidden;
         }
     }
 }

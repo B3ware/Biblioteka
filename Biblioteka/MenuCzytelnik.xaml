@@ -5,8 +5,165 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biblioteka"
         mc:Ignorable="d"
-        Title="MenuCzytelnik" Height="450" Width="800">
-    <Grid>
-        
+        Title="MenuCzytelnik" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:BibliotekaDataSet x:Key="bibliotekaDataSet"/>
+        <CollectionViewSource x:Key="ksiazkiViewSource" Source="{Binding Ksiazki, Source={StaticResource bibliotekaDataSet}}"/>
+        <CollectionViewSource x:Key="wydawnictwaViewSource" Source="{Binding Wydawnictwa, Source={StaticResource bibliotekaDataSet}}"/>
+        <CollectionViewSource x:Key="kategorieViewSource" Source="{Binding Kategorie, Source={StaticResource bibliotekaDataSet}}"/>
+        <CollectionViewSource x:Key="autorzyViewSource" Source="{Binding Autorzy, Source={StaticResource bibliotekaDataSet}}"/>
+    </Window.Resources>
+    <Grid OpacityMask="#CCFFFFFF" DataContext="{StaticResource ksiazkiViewSource}">
+        <Grid.Background>
+            <ImageBrush ImageSource="books.jpg"/>
+        </Grid.Background>
+        <Label Content="Książki" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Foreground="#E5FF7400" FontWeight="Bold" FontSize="36" Width="183"/>
+        <Grid x:Name="grid2" DataContext="{StaticResource wydawnictwaViewSource}" HorizontalAlignment="Left" Margin="473,160,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid4" HorizontalAlignment="Left" Margin="67,147,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid5" DataContext="{StaticResource wydawnictwaViewSource}" HorizontalAlignment="Left" Margin="18,184,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid7" DataContext="{StaticResource kategorieViewSource}" HorizontalAlignment="Left" Margin="56,209,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="35,73,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="id ksiazki:" Grid.Column="0" HorizontalAlignment="Left" Margin="-15,1,0,5" Grid.Row="0" VerticalAlignment="Center" Foreground="#FFFF7400"/>
+            <ComboBox x:Name="id_ksiazkiComboBox" Grid.Column="1" DisplayMemberPath="id_ksiazki" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="26,5,-20,5" Grid.Row="0" VerticalAlignment="Center" Width="120">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+        </Grid>
+        <Grid x:Name="grid3" HorizontalAlignment="Left" Margin="56,105,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Tytuł:" Grid.Column="0" HorizontalAlignment="Left" Margin="-36,2,0,4" Grid.Row="0" VerticalAlignment="Center" Foreground="#FFFF7400"/>
+            <TextBox x:Name="tytulTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="47,4,-41,4" Grid.Row="0" Text="{Binding Tytul, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid6" HorizontalAlignment="Left" Margin="57,137,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Opis:" Grid.Column="0" HorizontalAlignment="Left" Margin="-38,4,0,0" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="61" Height="28" Foreground="#FFFF7400"/>
+            <TextBox x:Name="opisTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="48,4,-42,4" Grid.Row="0" Text="{Binding Opis, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid8" DataContext="{StaticResource autorzyViewSource}" HorizontalAlignment="Left" Margin="60,169,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Autor" Grid.Column="0" HorizontalAlignment="Left" Margin="-40,4,0,2" Grid.Row="0" VerticalAlignment="Center" Foreground="#FFFF7400"/>
+            <TextBox x:Name="imieTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="45,4,-40,6" Grid.Row="0" Text="{Binding Imie, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid9" DataContext="{StaticResource autorzyViewSource}" HorizontalAlignment="Left" Margin="32,201,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Top"/>
+            <TextBox x:Name="nazwiskoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="57,2,-51,6" Grid.Row="0" Text="{Binding Nazwisko, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid10" DataContext="{StaticResource kategorieViewSource}" HorizontalAlignment="Left" Margin="47,233,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Kategoria:" Grid.Column="0" HorizontalAlignment="Left" Margin="-31,3,0,3" Grid.Row="0" VerticalAlignment="Top" Width="97" Foreground="#FFFF7400"/>
+            <TextBox x:Name="nazwaTextBox" Height="24" Margin="57,3,-111,5" Grid.Row="0" Text="{Binding Nazwa, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Grid x:Name="grid12" HorizontalAlignment="Left" Margin="13,297,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Rok wydania:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Top" Background="#00000000" Foreground="#FFFF7400"/>
+            <TextBox x:Name="rok_WydaniaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="6,0,0,8" Grid.Row="0" Text="{Binding Rok_Wydania, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid x:Name="grid11" DataContext="{StaticResource wydawnictwaViewSource}" HorizontalAlignment="Left" Margin="47,265,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Wydawnictwo:" Grid.Column="0" HorizontalAlignment="Left" Margin="-32,3,0,3" Grid.Row="0" VerticalAlignment="Top" Width="121" Foreground="#FFFF7400"/>
+            <TextBox x:Name="nazwaTextBox1" HorizontalAlignment="Left" Height="24" Margin="57,2,0,6" Grid.Row="0" Text="{Binding Nazwa, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Grid.ColumnSpan="2"/>
+        </Grid>
+        <Grid x:Name="grid13" HorizontalAlignment="Left" Margin="14,329,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="ISBN:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Background="#00000000" Foreground="#FFFF7400"/>
+            <TextBox x:Name="iSBNTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="47,0,-41,8" Grid.Row="0" Text="{Binding ISBN, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Button x:Name="wyloguj" Content="Wyloguj" HorizontalAlignment="Left" Margin="18,378,0,0" VerticalAlignment="Top" Width="75" Background="#E5FF7400" Click="wyloguj_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
     </Grid>
 </Window>

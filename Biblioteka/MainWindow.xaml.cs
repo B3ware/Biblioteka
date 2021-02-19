@@ -22,10 +22,12 @@ namespace Biblioteka
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
         }
+        
         public string conString = "Data Source=DESKTOP-H9HITU2;Initial Catalog=Biblioteka;Integrated Security=True";
         private void button_Click(object sender, RoutedEventArgs e)
         {
