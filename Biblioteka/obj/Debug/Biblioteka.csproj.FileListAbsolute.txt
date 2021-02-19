@@ -26,3 +26,5 @@ C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\MenuCzytelnik.
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\MenuCzytelnik.baml
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Rejestracja.g.cs
 C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Rejestracja.baml
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Panel.g.cs
+C:\Users\pawel.burek\source\repos\Biblioteka\Biblioteka\obj\Debug\Panel.baml

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Biblioteka
 {
     /// <summary>
-    /// Logika interakcji dla klasy Menu.xaml
+    /// Panel administratora z wyświetloną bazą książek lub wypożyczeń
     /// </summary>
     public partial class Menu : Window
     {
@@ -61,6 +61,13 @@ namespace Biblioteka
         {
             ksiazkiDataGrid.Visibility = Visibility.Visible;
             wypozyczeniaDataGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void edytuj_Click(object sender, RoutedEventArgs e)
+        {
+            Panel panel = new Panel();
+            panel.Show();
+            this.Close();
         }
     }
 }

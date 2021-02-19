@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Biblioteka
 {
     /// <summary>
-    /// Logika interakcji dla klasy Rejestracja.xaml
+    ///Rejestracja użytkowników
     /// </summary>
     public partial class Rejestracja : Window
     {

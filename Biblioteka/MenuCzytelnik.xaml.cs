@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ using System.Windows.Shapes;
 namespace Biblioteka
 {
     /// <summary>
-    /// Logika interakcji dla klasy MenuCzytelnik.xaml
+    /// Widok użytkownika, gdzie może zobaczyć jakie książki znajdują się w bazie
     /// </summary>
     public partial class MenuCzytelnik : Window
     {
@@ -55,6 +56,20 @@ namespace Biblioteka
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        private void Zarezerwuj_Click(object sender, RoutedEventArgs e)
+        {
+            
+            DateTime.Now.ToString("yyyy-MM-dd");
+            string conString = "Data Source=DESKTOP-H9HITU2;Initial Catalog=Biblioteka;Integrated Security=True";
+            SqlConnection con = new SqlConnection(conString);
+            if (con.State == System.Data.ConnectionState.Closed)
+                con.Open();
+            string query = "Insert into Wypozyczenia(id_czytelnik,id_ksiazki,Data_wypozyczenia,id_pracownik_wypozyczenie,Data_oddania,id_pracownik_oddanie) values ('"+id.Text+"'," +
+                "'" + id_ksiazkiComboBox.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "',2,NULL,NULL)";
+            SqlCommand sqlCmd = new SqlCommand(query, con);
+            sqlCmd.ExecuteNonQuery();
         }
     }
 }

@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace Biblioteka
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Skrypt obsługujący logowanie do bazy
     /// </summary>
     public partial class MainWindow : Window
     {

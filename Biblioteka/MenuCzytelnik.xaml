@@ -164,6 +164,13 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
+        <Button x:Name="Zarezerwuj" Content="Zarezerwuj online" HorizontalAlignment="Left" Height="52" Margin="295,309,0,0" VerticalAlignment="Top" Width="125" Background="#E5FF7400" Click="Zarezerwuj_Click">
+            <Button.DataContext>
+                <DropShadowEffect/>
+            </Button.DataContext>
+        </Button>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="295,278,0,0" VerticalAlignment="Top" Foreground="#FFFF7400" FontWeight="Bold"/>
+        <TextBox x:Name="id" HorizontalAlignment="Left" Height="23" Margin="326,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Background="#7FFFFFFF"/>
 
     </Grid>
 </Window>
